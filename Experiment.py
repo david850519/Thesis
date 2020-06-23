@@ -808,27 +808,6 @@ def Main_Q(Grid_size,Obs_ratio,Robot_num,Arr):
 
     return([Q_res,Part_Q_res])
 
-def mail(filename):
-    gmailUser = "david850519@gmail.com"
-    gmailPasswd = "gmdaugcbvitnrwgd"
-    to = ['david850519@gmail.com']
-
-    emails = [t.split(',') for t in to]
-    message = MIMEText(filename + 'Experiment Complete', 'utf-8')
-    message['Subject'] = filename + 'Experiment Complete'
-    message['From'] = gmailUser
-    message['To'] = ','.join(to)
-
-    # Set smtp
-    smtp = smtplib.SMTP("smtp.gmail.com:587")
-    smtp.ehlo()
-    smtp.starttls()
-    smtp.login(gmailUser, gmailPasswd)
-
-    # Send msil
-    smtp.sendmail(message['From'], message['To'], message.as_string())
-    print('Send mails OK!')
-
 if __name__ == '__main__':
     #-----------------------test Sample--------------------------
     # Grid_size = 2
